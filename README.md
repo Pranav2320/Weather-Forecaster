@@ -1,1 +1,7 @@
 # Weather-Forecaster
+
+The given code is an HTML file that creates a weather forecasting application. The application has a form that takes input from the user in the form of a city name. The user can enter the name of any city, and the application will display the current weather conditions of that city. The application uses the OpenWeatherMap API to fetch the weather data of the entered city. The fetched data is in JSON format, which is then parsed to extract the required information such as the weather description, location, temperature, and weather icon. The extracted information is then displayed on the application's interface. The application also has a refresh button that allows the user to refresh the weather data of the same city. 
+
+It is important to note that the given code is incomplete and contains errors. The API link in the script tag is hardcoded to fetch the weather data of Pune city, and the form's action attribute is set to "/". The form's action attribute should be set to the URL of the server-side script that will handle the form data and fetch the weather data of the entered city. Additionally, the if statement in the script tag is outside the request.onload function, which will cause an error as the obj variable is not defined outside the function. 
+
+Overall, the given code is a basic weather forecasting application that can be further developed to include more features such as hourly and weekly forecasts, weather alerts, and more.
