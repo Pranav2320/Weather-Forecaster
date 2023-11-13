@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecaster</title>
+    <link rel="stylesheet" href="./api.css">
+
+    <form class="form" action="/" method="post">
+        <label for="CityInput">City Name :</label>
+        <input id="CityInput" type="text" name="cityName">
+        <button type="submit" >Go</button>
+    </form>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2><i class="fa fa-map-marker">🏞</i>
+            <span id="location"></span>
+            </h2>
+
+            <h6 id="weather"></h6>
+
+            <h4><span id="temp"><sup>O</sup>C</span></h4>
+            <img src="" id="icon" alt="">
+            <button onclick="windows.location.reload()" class="refresh"><i class="fa fa-refresh"></i>⟳</button>
+        </div>
+    </div>
+
+    <script>
+        link = "https://api.openweathermap.org/data/2.5/weather?q=Pune&appid=ea9da271471229305f4d37a96a4c7498";
+        var request = new XMLHttpRequest();
+        request.open('GET',link,true);
+        request.onload = function(){
+           var obj = JSON.parse(this.response);
+           console.log(obj);
+        
+           document.getElementById('weather').innerHTML = obj.weather[0].description;
+           document.getElementById('location').innerHTML = obj.name;
+           document.getElementById('temp').innerHTML = Math.round(obj.main.temp - 273.15);
+           document.getElementById('icon').src = "https://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+        };
+
+        if( request.status >= 200 && request.status < 400 ){
+          var temp = obj.main.temp;  
+        }
+        else{
+            console.log("The city data is not available.")
+        }
+
+        request.send();
+
+    </script>
+</body>
+</html>
